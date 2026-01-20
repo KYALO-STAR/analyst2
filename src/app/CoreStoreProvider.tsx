@@ -89,7 +89,7 @@ const CoreStoreProvider: React.FC<{ children: React.ReactNode }> = observer(({ c
                     // Find US Dollar account
                     const usdAccount = realAccounts.find(acc => {
                         const currency = acc.currency;
-                        return currency === 'USD' && currency !== 'USDC';
+                        return currency === 'USD' && currency !== 'USD';
                     });
                     
                     if (demoAccount && usdAccount) {
