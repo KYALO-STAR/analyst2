@@ -12,7 +12,6 @@ import useTMB from '@/hooks/useTMB';
 import { handleOidcAuthFailure } from '@/utils/auth-utils';
 import { getBalanceSwapState } from '@/utils/balance-swap-utils';
 import { StandaloneCircleUserRegularIcon } from '@deriv/quill-icons/Standalone';
-
 import { requestOidcAuthentication } from '@deriv-com/auth-client';
 import { Localize, useTranslations } from '@deriv-com/translations';
 import { Header, useDevice, Wrapper } from '@deriv-com/ui';
@@ -295,11 +294,11 @@ const AppHeader = observer(({ isAuthenticating }: TAppHeaderProps) => {
                 <div className='powered-by-deriv-header' ref={whatsappDropdownRef}>
                     <img
                         src='/assets/images/pulsetrader-logo.png'
-                        alt='PULSE TRADER logo'
+                        alt='KP TRADER logo'
                         className='powered-by-deriv-header__logo'
                     />
                     <div className='powered-by-deriv-header__text'>
-                        <span className='deriv-word'>PULSE TRADER</span>
+                        <span className='deriv-word'>KP TRADER</span>
                         <span className='powered-by-deriv-header__label'>POWERED BY DERIV</span>
                     </div>
                     <button

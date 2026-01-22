@@ -45,10 +45,10 @@
   ],
   "channels": {
     "whatsapp": "+1234567890",
-    "telegram": "@pulsetrader_bot",
-    "email": "support@pulsetrader.com",
-    "discord": "https://discord.gg/pulsetrader"
+    "telegram": "kptrader_bot",
+    "email": "support@kp-trader.com",
+    "discord": "https://discord.gg/kp-trader"
   },
-  "appName": "PulseTrader",
-  "supportEmail": "support@pulsetrader.com"
+  "appName": " KP Trader",
+  "supportEmail": "support@kp-trader.com"
 }

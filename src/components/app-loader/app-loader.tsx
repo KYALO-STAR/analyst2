@@ -71,7 +71,7 @@ const AppLoader: React.FC<AppLoaderProps> = ({ onLoadingComplete, duration = 120
       className="georgetown-loader"
       style={{
         backgroundImage: "url('/assets/images/pulsetrader-logo.png')",
-        backgroundSize: 'contain',
+        backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}
@@ -80,7 +80,7 @@ const AppLoader: React.FC<AppLoaderProps> = ({ onLoadingComplete, duration = 120
       
       <div className="content-overlay">
         <div className="maroon-banner">
-          <h1 className="banner-title">PULSE TRADER</h1>
+          <h1 className="banner-title">KP TRADER</h1>
           <p className="banner-message">{messages[messageIndex]?.title || 'Connecting to trading server...'}</p>
           <div className="progress-wrapper">
             <div className="progress-track">

@@ -227,7 +227,7 @@
         }
 
         &:hover {
-            background-color: var(--sidebar-hover);
+            background-color: goldenrod(var(--sidebar-hover), 0.8);
             color: var(--sidebar-accent);
 
             .sidebar__icon {
@@ -236,7 +236,7 @@
         }
 
         &--active {
-            background: linear-gradient(90deg, rgba(27, 107, 71, 0.15), rgba(212, 175, 55, 0.08));
+            background: linear-gradient(90deg, rgba(4, 89, 51, 0.15), rgba(240, 210, 109, 0.08));
             color: var(--sidebar-accent);
 
             @include mobile-screen {
