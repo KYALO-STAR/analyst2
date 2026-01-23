@@ -10,9 +10,15 @@
   position: relative;
   overflow: hidden;
 
+  :root {
+  --accent-primary: #1b6b47;
+  --accent-secondary: #d4af37;
+}
+
+
   .login-card {
     background-color: #1f1f1f;
-    border: 2px solid #1b6b47;
+    border: 2px solid var(--accent-primary);
     border-radius: 12px;
     padding: 3rem 2.5rem;
     max-width: 450px;
@@ -33,19 +39,21 @@
 
       h1 {
         font-size: 2rem;
-        color: #1b6b47;
+        color: var(--accent-primary);
         margin: 0 0 0.5rem 0;
         font-weight: 700;
         letter-spacing: 0.05rem;
+        color: var(--accent-primary);
       }
 
       p {
-        color: #d4af37;
+        color: var(--accent-secondary);
         font-size: 0.9rem;
         margin: 0;
         font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 0.08rem;
+        color: var(--accent-secondary);
       }
     }
 
@@ -81,7 +89,7 @@
 
             &:focus {
               outline: none;
-              border-color: #1b6b47;
+              border-color: var(--accent-primary);
               box-shadow: 0 0 15px rgba(27, 107, 71, 0.3);
               background-color: #323232;
             }
@@ -96,11 +104,11 @@
             right: 1rem;
             background: none;
             border: none;
-            color: #1b6b47;
             cursor: pointer;
             font-size: 1.2rem;
             padding: 0;
             transition: all 0.2s ease;
+            color: var(--accent-primary);
 
             &:hover {
               transform: scale(1.2);
@@ -118,12 +126,20 @@
         margin-bottom: 1.5rem;
         font-size: 0.9rem;
         font-weight: 500;
-        animation: shake 0.4s ease;
+        animation: shake 0.4s ease, fadeIn 0.3s ease;
+      
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
       }
+        
+      
 
       .login-btn {
         width: 100%;
-        background: linear-gradient(135deg, #1b6b47 0%, #2d8659 100%);
+        background: linear-gradient(135deg, var(--accent-primary) 0%, #2d8659 100%);
         color: white;
         border: none;
         padding: 1rem;

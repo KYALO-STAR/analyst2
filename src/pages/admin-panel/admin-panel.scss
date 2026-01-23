@@ -6,17 +6,24 @@
   max-width: 1200px;
   margin: 0 auto;
 
+  :root {
+  --accent-primary: #1b6b47;
+  --accent-danger: #c72c3f;
+  --accent-secondary: #d4af37;
+}
+
+
   .admin-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
-    border-bottom: 2px solid #1b6b47;
+    border-bottom: 2px solid var(--accent-primary);
     padding-bottom: 1rem;
 
     h1 {
       font-size: 2.5rem;
-      color: #1b6b47;
+      color: var(--accent-primary);
       margin: 0;
     }
 
@@ -38,7 +45,7 @@
     }
 
     .save-btn {
-      background-color: #1b6b47;
+      background-color: var(--accent-primary);
       color: white;
 
       &:hover {
@@ -48,7 +55,7 @@
     }
 
     .logout-btn {
-      background-color: #c72c3f;
+      background-color: var(--accent-danger);
       color: white;
 
       &:hover {
@@ -60,7 +67,7 @@
 
   .message-banner {
     background-color: #063a1f;
-    border: 1px solid #1b6b47;
+    border: 1px solid var(--accent-primary);
     color: #4ade80;
     padding: 1rem;
     border-radius: 4px;
@@ -85,12 +92,12 @@
       transition: all 0.3s ease;
 
       &:hover {
-        color: #1b6b47;
+        color: var(--accent-primary);
       }
 
       &.active {
-        color: #1b6b47;
-        border-bottom-color: #1b6b47;
+        color: var(--accent-primary);
+        border-bottom-color: var(--accent-primary);
       }
     }
   }
@@ -99,7 +106,7 @@
     .section {
       h2 {
         font-size: 1.8rem;
-        color: #d4af37;
+        color: var(--accent-secondary);
         margin-bottom: 1.5rem;
         border-bottom: 1px solid #333;
         padding-bottom: 1rem;
@@ -107,7 +114,7 @@
     }
 
     .add-btn {
-      background-color: #2d8659;
+      background-color: var(--accent-primary);
       color: white;
       border: none;
       padding: 0.6rem 1.5rem;
@@ -119,8 +126,8 @@
       transition: all 0.3s ease;
 
       &:hover {
-        background-color: #1b6b47;
-        box-shadow: 0 0 10px rgba(45, 134, 89, 0.4);
+        background-color: var(--accent-primary);
+        box-shadow: 0 0 10px rgba(27, 107, 71, 0.4);
       }
     }
 
@@ -155,7 +162,7 @@
 
           &:focus {
             outline: none;
-            border-color: #1b6b47;
+            border-color: var(--accent-primary);
             box-shadow: 0 0 8px rgba(27, 107, 71, 0.3);
           }
         }
@@ -166,7 +173,7 @@
         }
 
         .delete-btn {
-          background-color: #c72c3f;
+          background-color: var(--accent-danger);
           color: white;
           border: none;
           padding: 0.5rem 1rem;
@@ -201,7 +208,7 @@
           display: block;
           margin-bottom: 0.5rem;
           font-weight: 600;
-          color: #d4af37;
+          color: var(--accent-secondary);
           font-size: 0.95rem;
         }
 
@@ -217,7 +224,7 @@
 
           &:focus {
             outline: none;
-            border-color: #1b6b47;
+            border-color: var(--accent-primary);
             box-shadow: 0 0 8px rgba(27, 107, 71, 0.3);
           }
         }

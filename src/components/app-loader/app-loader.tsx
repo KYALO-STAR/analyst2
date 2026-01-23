@@ -70,7 +70,7 @@ const AppLoader: React.FC<AppLoaderProps> = ({ onLoadingComplete, duration = 120
     <div
       className="georgetown-loader"
       style={{
-        backgroundImage: "url('/assets/images/pulsetrader-logo.png')",
+        backgroundImage: "url('/assets/images/kptrader-logo.png')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'

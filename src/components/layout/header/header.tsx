@@ -293,7 +293,7 @@ const AppHeader = observer(({ isAuthenticating }: TAppHeaderProps) => {
                 <AppLogo onMenuClick={handleMenuClick} />
                 <div className='powered-by-deriv-header' ref={whatsappDropdownRef}>
                     <img
-                        src='/assets/images/pulsetrader-logo.png'
+                        src='/assets/images/kptrader-logo.png'
                         alt='KP TRADER logo'
                         className='powered-by-deriv-header__logo'
                     />

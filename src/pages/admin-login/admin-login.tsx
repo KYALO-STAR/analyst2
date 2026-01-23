@@ -6,22 +6,26 @@ const AdminLogin: React.FC = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false); // <-- Add this line
   const { login } = useAdminAuth();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setLoading(true); // <-- Start loading
 
     if (!password) {
       setError('Please enter the admin key');
+      setLoading(false); // <-- Stop loading
       return;
     }
 
     if (login(password)) {
-      // Successfully logged in - page will redirect via AdminApp component
+      // Successfully logged in
     } else {
       setError('Invalid admin key');
       setPassword('');
+      setLoading(false); // <-- Stop loading
     }
   };
 
@@ -50,6 +54,7 @@ const AdminLogin: React.FC = () => {
                 type="button"
                 className="toggle-password"
                 onClick={() => setShowPassword(!showPassword)}
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
               >
                 {showPassword ? '👁️' : '👁️‍🗨️'}
               </button>
@@ -58,8 +63,8 @@ const AdminLogin: React.FC = () => {
 
           {error && <div className="error-message">{error}</div>}
 
-          <button type="submit" className="login-btn">
-            Access Admin Panel
+          <button type="submit" className="login-btn" disabled={loading}>
+            {loading ? 'Authenticating...' : 'Access Admin Panel'}
           </button>
         </form>
 

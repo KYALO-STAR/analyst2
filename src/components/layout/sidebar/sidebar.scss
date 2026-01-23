@@ -6,7 +6,7 @@
     --sidebar-hover: var(--general-section-1);
     --sidebar-active: #1b6b47;
     --sidebar-text: var(--text-prominent);
-    --sidebar-accent: #d4af37;
+    --sidebar-accent: #a17c03;
 
     /* Desktop: Horizontal top navigation bar */
     @include desktop-screen {
@@ -15,7 +15,7 @@
         right: 0;
         top: 4.4rem;
         height: auto;
-        background-color: var(--sidebar-bg);
+        background-color: var(--sidebar-accent);
         border-bottom: 1px solid var(--sidebar-border);
         z-index: 100;
         display: flex;
@@ -58,31 +58,52 @@
         }
 
         .sidebar__item {
-            padding: 0 1.2rem;
-            height: 3.2rem;
-            border-radius: 0;
-            white-space: nowrap;
-            gap: 0.6rem;
-            font-size: 0.9rem;
             display: flex;
             align-items: center;
-            flex-shrink: 0;
+            gap: 0.8rem;
+            width: 100%;
+            padding: 1rem 1.6rem;
+            background: none;
+            border: none;
+            color: goldenrod;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            @include mobile-screen {
+                padding: 0.9rem 1.6rem;
+                gap: 1rem;
+            }
+
+            &:hover {
+                background-color: var(--sidebar-hover);
+                color: var(--sidebar-accent);
+
+                .sidebar__icon {
+                    filter: brightness(1.2);
+                }
+            }
 
             &--active {
-                border-left: none;
-                border-bottom: 3px solid var(--sidebar-accent);
-                padding-left: 1.2rem;
-                background: rgba(27, 107, 71, 0.08);
+                background: linear-gradient(
+                    90deg,
+                    rgba(27, 107, 71, 0.15),
+                    rgba(240, 210, 109, 0.08)
+                );
+                color: var(--sidebar-accent);
+
+                @include mobile-screen {
+                    border-left: 4px solid var(--sidebar-accent);
+                    padding-left: calc(1.6rem - 4px);
+                }
+
+                .sidebar__icon {
+                    color: var(--sidebar-accent);
+                }
             }
-        }
-
-        .sidebar__icon {
-            display: flex;
-        }
-
-        .sidebar__label {
-            opacity: 1;
-            width: auto;
         }
     }
 
@@ -98,7 +119,7 @@
         height: 3.2rem;
         padding: 0.6rem;
         cursor: pointer;
-        color: var(--sidebar-text);
+        color: var(--sidebar-accent);
         transition: color 0.2s ease;
         border-radius: 4px;
 
@@ -109,7 +130,7 @@
         }
 
         &:hover {
-            color: var(--sidebar-accent);
+            color: var(--sidebar-text);
             background-color: var(--sidebar-hover);
         }
 
@@ -213,7 +234,7 @@
         padding: 1rem 1.6rem;
         background: none;
         border: none;
-        color: var(--sidebar-text);
+        color: goldenrod;
         font-size: 0.9rem;
         font-weight: 500;
         cursor: pointer;
@@ -227,7 +248,7 @@
         }
 
         &:hover {
-            background-color: goldenrod(var(--sidebar-hover), 0.8);
+            background-color: var(--sidebar-hover);
             color: var(--sidebar-accent);
 
             .sidebar__icon {
@@ -236,7 +257,11 @@
         }
 
         &--active {
-            background: linear-gradient(90deg, rgba(4, 89, 51, 0.15), rgba(240, 210, 109, 0.08));
+            background: linear-gradient(
+                90deg,
+                rgba(27, 107, 71, 0.15),
+                rgba(240, 210, 109, 0.08)
+            );
             color: var(--sidebar-accent);
 
             @include mobile-screen {
@@ -257,7 +282,7 @@
         min-width: 20px;
         width: 20px;
         height: 20px;
-        color: inherit;
+        color: goldenrod;
         transition: all 0.2s ease;
         flex-shrink: 0;
 
@@ -270,7 +295,7 @@
     &__label {
         font-size: 0.9rem;
         font-weight: 500;
-        color: inherit;
+        color: goldenrod;
         flex: 1;
 
         @include desktop-screen {
@@ -290,6 +315,3 @@
         margin: 0;
     }
 }
-
-
-
