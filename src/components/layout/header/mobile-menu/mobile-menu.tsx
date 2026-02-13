@@ -52,26 +52,27 @@ const MobileMenu = forwardRef<MobileMenuRef>((props, ref) => {
 
                 <Drawer.Content>
                     {isLanguageSettingVisible ? (
-                    <>
-                        <div className='mobile-menu__back-btn'>
-                            <BackButton buttonText={localize('Language')} onClick={hideModal} />
-                        </div>
+                        <>
+                            <div className='mobile-menu__back-btn'>
+                                <BackButton buttonText={localize('Language')} onClick={hideModal} />
+                            </div>
 
-                        <MobileLanguagesDrawer
-                            isOpen
-                            languages={LANGUAGES}
-                            onClose={hideModal}
-                            onLanguageSwitch={code => {
-                                switchLanguage(code);
-                                window.location.replace(getActiveTabUrl());
-                                window.location.reload();
-                            }}
-                            selectedLanguage={currentLang}
-                            wrapperClassName='mobile-menu__language-drawer'
-                        />
-                    </>
+                            <MobileLanguagesDrawer
+                                isOpen
+                                languages={LANGUAGES}
+                                onClose={hideModal}
+                                onLanguageSwitch={code => {
+                                    switchLanguage(code);
+                                    window.location.replace(getActiveTabUrl());
+                                    window.location.reload();
+                                }}
+                                selectedLanguage={currentLang}
+                                wrapperClassName='mobile-menu__language-drawer'
+                            />
+                        </>
                     ) : (
-                    <MenuContent onOpenSubmenu={openSubmenu} />)
+                        <MenuContent onOpenSubmenu={openSubmenu} />
+                    )}
                 </Drawer.Content>
 
                 <Drawer.Footer className='mobile-menu__footer'>

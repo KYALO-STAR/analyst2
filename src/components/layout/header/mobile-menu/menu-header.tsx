@@ -1,8 +1,13 @@
 import { useTranslations } from '@deriv-com/translations';
 import { Text, useDevice } from '@deriv-com/ui';
 
-const MenuHeader = () => {
-    const { localize } = useTranslations();
+type MenuHeaderProps = {
+    hideLanguageSetting?: boolean;
+    openLanguageSetting?: () => void;
+};
+
+const MenuHeader = ({ hideLanguageSetting = false, openLanguageSetting }: MenuHeaderProps) => {
+    const { localize, currentLang } = useTranslations();
     const { isDesktop } = useDevice();
 
     return (
@@ -10,6 +15,11 @@ const MenuHeader = () => {
             <Text size={isDesktop ? 'md' : 'lg'} weight='bold'>
                 {localize('Menu')}
             </Text>
+            {!hideLanguageSetting && (
+                <button type='button' className='mobile-menu__lang-btn' onClick={openLanguageSetting}>
+                    {currentLang}
+                </button>
+            )}
         </div>
     );
 };

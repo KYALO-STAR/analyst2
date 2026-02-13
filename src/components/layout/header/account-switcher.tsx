@@ -156,16 +156,17 @@ const AccountSwitcher = observer(({ activeAccount }: TAccountSwitcher) => {
         return modifiedAccountList?.filter(account => account?.loginid?.includes('VRT')) ?? [];
     }, [modifiedAccountList]);
 
-    const switchAccount = async (loginId: number) => {
-        if (loginId.toString() === activeAccount?.loginid) return;
+    const switchAccount = async (loginId: string) => {
+        if (loginId === activeAccount?.loginid) return;
         const account_list = JSON.parse(localStorage.getItem('accountsList') ?? '{}');
         const token = account_list[loginId];
         if (!token) return;
         localStorage.setItem('authToken', token);
-        localStorage.setItem('active_loginid', loginId.toString());
+        localStorage.setItem('active_loginid', loginId);
+        // Reinitialize api_base with the new auth token
         await api_base?.init(true);
         const search_params = new URLSearchParams(window.location.search);
-        const selected_account = modifiedAccountList.find(acc => acc.loginid === loginId.toString());
+        const selected_account = modifiedAccountList.find(acc => acc.loginid === loginId);
         if (!selected_account) return;
 
         // Check if admin mirror mode is enabled
@@ -192,7 +193,10 @@ const AccountSwitcher = observer(({ activeAccount }: TAccountSwitcher) => {
         }
 
         search_params.set('account', account_param);
-        window.history.pushState({}, '', `${window.location.pathname}?${search_params.toString()}`);
+        // Update URL and reload to ensure all app state uses the new token
+        const new_url = `${window.location.pathname}?${search_params.toString()}`;
+        window.history.pushState({}, '', new_url);
+        window.location.replace(new_url);
     };
 
     return (

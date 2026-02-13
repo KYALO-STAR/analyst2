@@ -194,6 +194,27 @@ export const getBotXmlPublicUrl = (filePath: string): string | null => {
     return data?.publicUrl || null;
 };
 
+/**
+ * Creates a time-limited signed URL for a bot XML file in Supabase Storage.
+ * Useful when the storage bucket is not public.
+ * @param filePath Path of the file in the bucket
+ * @param expiresIn Seconds until the signed URL expires (default: 7 days)
+ * @returns Signed URL string or null on error
+ */
+export const getBotXmlSignedUrl = async (filePath: string, expiresIn = 60 * 60 * 24 * 7): Promise<string | null> => {
+    try {
+        const { data, error } = await supabase.storage.from('bot-xml-files').createSignedUrl(filePath, expiresIn);
+        if (error) {
+            console.error('Error creating signed URL for', filePath, error);
+            return null;
+        }
+        return data?.signedUrl || null;
+    } catch (e) {
+        console.error('Unexpected error creating signed URL for', filePath, e);
+        return null;
+    }
+};
+
 // --- Admin Log Operations ---
 
 /**

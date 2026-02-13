@@ -30,7 +30,54 @@ playwright/.cache/
 
 # Logs
 logs
+# Node
+node_modules/
+dist/
+build/
+.cache/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+.env.production
+.env.test
+
+# Logs
 *.log
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local history and caches
+.history/
+.local-history/
+
+# OneDrive temp files
+~$*
+
+# Test coverage
+coverage/
+
+# Build output
+dist/
+
+# Misc
+*.tgz
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

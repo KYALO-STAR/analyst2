@@ -22,6 +22,7 @@ import UserIdentificationModal from './UserIdentificationModal';
 import './admin-panel.scss';
 import './user-identification-modal.scss';
 import './bot-form.scss'; // Import BotForm styles
+import BotDebugPanel from './BotDebugPanel';
 
 // Local Bot interface for admin panel (includes xmlContent for upload handling)
 export interface Bot {
@@ -766,6 +767,8 @@ const AdminPanel: React.FC = () => {
                     </div>
                 )}
             </div>
+            {/* Debug panel - non-intrusive helper for diagnosing bot XML loading */}
+            <BotDebugPanel />
             <UserIdentificationModal
                 isOpen={isIdentificationModalOpen}
                 onClose={() => setIsIdentificationModalOpen(false)}
